@@ -56,12 +56,12 @@ var app = new Vue({
 	},
 	methods: {
 		redirect: function(url,pathCite) {
-					if (this.$route.path != pathCite) {
-						this.$router.push({
-							path: pathCite,
-							beforeEnter: location.href = url,
-						})
-					}
+			if (this.$route.path != pathCite) {
+				this.$router.push({
+					path: pathCite,
+					beforeEnter: location.href = url,
+				})
+			}
 		},
 	},
 	router,
