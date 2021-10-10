@@ -11,7 +11,7 @@
         top: 50%;
         left: 50%;
         margin-right: -50%;
-        transform: translate(-50%, -50%)
+        transform: translate(-50%, -50%);
 	}
 	table, td {
 		border-width: 0.02em;
@@ -23,11 +23,13 @@
 	}
 	img.social {
 		width:  3em;
-		margin: auto;
 		display: block;
 		transition: transform 0.25s ease-out 50ms;
 	}
-	td.social:hover > a > img {
+	td {
+		padding:0;  /* for filling cell */
+	}
+	td.social:hover > button > img {
 		transform: scale(0.8, 0.8);
 	}
 	td.social {
@@ -54,4 +56,11 @@
 	}
 	h3 {
 		margin: 0.2em;
+	}
+	button {
+		padding: 0; /* for filling button */
+		background: none;
+		border: none;
+		cursor: pointer;
+		display: block;
 	}

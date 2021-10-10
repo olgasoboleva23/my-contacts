@@ -5,6 +5,7 @@
 	<meta name="viewport" content="width=device-width">
 	<title>Helga Soboleva</title>
 	<script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+	<script src="https://unpkg.com/vue-router/dist/vue-router.js"></script>
 	<link rel="stylesheet" href="./css/main.css">
 </head>
 <body>
@@ -17,7 +18,7 @@
 	</figure>
 <h3 class="header">My pages:</h3>
 <div>
-	<pages-table :items="cites"></pages-table>
+	<pages-table v-on:method-redirect="redirect" :items="cites"></pages-table>
 </div>
 </center>
 </div>
@@ -25,7 +26,10 @@
 
 Vue.component('pagesTable', {
 	props: ['items'],
-	template: '<table><tr v-for="item in items" :key="item.id"><td>{{ item.citeName }}</td><td class="social"><a v-bind:href="item.url" target="_blank"><img :src="\'./pics/\'+item.img" :alt="item.citeName" class="social"></img></a></td></tr></table>'
+	template: '<table><tr v-for="item in items" :key="item.id"><td>{{ item.citeName }}</td><td class="social"><button type="submit" @click="$emit(\'method-redirect\', item.url, item.citeName)"><img :src="\'./pics/\'+item.img" :alt="item.citeName" class="social"></img></button></td></tr></table>',
+})
+
+var router = new VueRouter({
 })
 
 var app = new Vue({
@@ -38,7 +42,7 @@ var app = new Vue({
 				img: 'GitHub.svg'
 			},
 			VK: {
-				citeName: 'VK.com',
+				citeName: 'VK',
 				url: 'https://vk.com',
 				img: 'vk.svg'
 			},
@@ -50,6 +54,17 @@ var app = new Vue({
 			},
 		},
 	},
+	methods: {
+		redirect: function(url,pathCite) {
+					if (this.$route.path != pathCite) {
+						this.$router.push({
+							path: pathCite,
+							beforeEnter: location.href = url,
+						})
+					}
+		},
+	},
+	router,
 })
 </script>
 </body>
