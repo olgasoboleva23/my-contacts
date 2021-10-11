@@ -18,7 +18,10 @@
 	</figure>
 <h3 class="header">My pages:</h3>
 <div>
-	<pages-table v-on:method-redirect="redirect" :items="cites"></pages-table>
+	<transition name="appearing" appear>
+	<pages-table @method-redirect="redirect"
+				 :items="cites" />
+	</transition>
 </div>
 </center>
 </div>
@@ -26,7 +29,35 @@
 
 Vue.component('pagesTable', {
 	props: ['items'],
-	template: '<table><tr v-for="item in items" :key="item.id"><td>{{ item.citeName }}</td><td class="social"><button type="submit" @click="$emit(\'method-redirect\', item.url, item.citeName)"><img :src="\'./pics/\'+item.img" :alt="item.citeName" class="social"></img></button></td></tr></table>',
+	template: '<table>\
+	<tr v-for="item in items"\
+		:key="item.id">\
+	<td>{{ item.citeName }}</td>\
+	<td class="social">\
+	<button-cells :item="item"\
+				  v-on="$listeners"/>\
+	</td>\
+	</tr>\
+	</table>',
+})
+
+Vue.component('buttonCells', function(resolve, reject) {
+	setTimeout( function() {
+		if(true) {
+		resolve({
+			props: ['item'],
+			template: '<transition name="appearing" appear>\
+			<button @click="$emit(\'method-redirect\', item.url, item.citeName)">\
+					<img :src="\'./pics/\'+item.img"\
+						 :alt="item.citeName"\
+				 		 class="social"/>\
+			</button>\
+			</transition>'
+		})	
+		} else {
+		reject('reason')
+		}
+	}, 1000)
 })
 
 var router = new VueRouter({
@@ -36,17 +67,20 @@ var app = new Vue({
 	el: '#app',
 	data: {
 		cites: {
-			GitHub: {
+			GitHub: {				
+				id: '1',
 				citeName: 'GitHub',
 				url: 'https://github.com/olgasoboleva23',
 				img: 'GitHub.svg'
 			},
 			VK: {
+				id: '2',
 				citeName: 'VK',
 				url: 'https://vk.com',
 				img: 'vk.svg'
 			},
 			telegram: {
+				id: '3',
 				citeName: 'telegram',
 				url: 'https://telegram.org',
 				img: 'telegram.svg'

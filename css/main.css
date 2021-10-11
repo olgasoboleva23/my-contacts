@@ -27,12 +27,14 @@
 		transition: transform 0.25s ease-out 50ms;
 	}
 	td {
-		padding:0;  /* for filling cell */
+		padding: 0;  /* for filling cell */
 	}
 	td.social:hover > button > img {
 		transform: scale(0.8, 0.8);
 	}
 	td.social {
+		width: 2.5em;
+		height: 2.5em;
 		transition: background-color 0.25s ease-out 50ms;
 	}
 	td.social:hover {
@@ -63,4 +65,21 @@
 		border: none;
 		cursor: pointer;
 		display: block;
+	}
+	.appearing-enter-active {
+		animation: appearingAnimation .5s;
+	}
+	@keyframes appearingAnimation {
+		0% {
+			opacity: 0;
+			transform: scale(0);
+		}
+		50% {
+			opacity: .5;
+			transform:  scale(1.5);
+		}
+		100% {
+			opacity: 1;
+			transform:  scale(1);
+		}
 	}
