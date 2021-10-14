@@ -14,32 +14,32 @@
         transform: translate(-50%, -50%);
 	}
 	table, td {
-		border-width: 0.02em;
+		border-width: .02em;
 		border-style: dashed;
 		background-color: #a35361;
-		border-radius: 0.5em;
+		border-radius: .5em;
   		text-align: center;
   		vertical-align: middle;
 	}
 	img.social {
 		width:  3em;
 		display: block;
-		transform: scale(0.8, 0.8);
+		transform: scale(.8, .8);
 	}
 	td {
 		padding: 0;  /* for filling cell */
 	}
 	button:hover {
-		filter: invert(0.5);
+		filter: invert(.5);
 	}
 	button:focus > img {
-		transform: scale(0.8,0.8) translateY(0.1em);
-		animation: transform 0.1s;
+		transform: scale(.8, .8) translateY(.1em);
+		animation: transform .1s;
 	}
 	td.social {
 		width: 2.5em;
 		height: 2.5em;
-		animation: background .5s alternate forwards;
+		animation: background 0s 1.5s forwards;
 	}
 	@keyframes background {
 		100% {
@@ -53,17 +53,17 @@
 		font-family: 'Indie Flower', normal;
 	}
 	.icon {
-		border-width: 0.02em;
+		border-width: .02em;
 		border-style: dashed;
 		width: 4em;
 		height: auto;
-		border-radius: 0.5em;
+		border-radius: .5em;
 	}
 	figure, p {
 		margin: 0;
 	}
 	h3 {
-		margin: 0.2em;
+		margin: .2em;
 	}
 	button {
 		padding: 0; /* for filling button */
@@ -71,8 +71,15 @@
 		border: none;
 		display: block;
 		border-radius: 0.5em;
-		cursor: url(../handy.png) 5 0, default;
-		box-shadow: 0 0.1em 0.5em 0 rgba(0,0,0,0.8),inset 0 -1em 0 0 rgba(0, 0, 0, 0.25);
+		cursor: pointer;
+		box-shadow: 0 0.1em 0.5em 0 rgba(0, 0, 0, .8),inset 0 -1em 0 0 rgba(0, 0, 0, .25);
+		background-color: white;
+		animation: backgroundTransparent .5s forwards;
+	}
+	@keyframes backgroundTransparent {
+		100% {
+			background-color: rgba(0, 0, 0, 0);
+		}
 	}
 	.appearing-enter-active {
 		animation: appearingAnimation .5s;
