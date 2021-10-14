@@ -57,7 +57,7 @@
 		border-style: dashed;
 		width: 4em;
 		height: auto;
-		border-radius: .5em;
+		border-radius: 2em;
 	}
 	figure, p {
 		margin: 0;
@@ -74,7 +74,7 @@
 		cursor: pointer;
 		box-shadow: 0 0.1em 0.5em 0 rgba(0, 0, 0, .8),inset 0 -1em 0 0 rgba(0, 0, 0, .25);
 		background-color: white;
-		animation: backgroundTransparent .5s forwards;
+		animation: backgroundTransparent .1s forwards;
 	}
 	@keyframes backgroundTransparent {
 		100% {
