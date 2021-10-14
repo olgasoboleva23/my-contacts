@@ -17,16 +17,19 @@
 		border-width: .02em;
 		border-style: dashed;
 		background-color: #a35361;
-		border-radius: .5em;
+		border-radius: 1em;
   		text-align: center;
   		vertical-align: middle;
 	}
 	img.social {
-		width:  3em;
+		width:  5em;
 		display: block;
 		transform: scale(.8, .8);
+		border-radius: 1.5em;
 	}
 	td {
+		width: 4.2em;
+		height: 4.2em;
 		padding: 0;  /* for filling cell */
 	}
 	button:hover {
@@ -37,8 +40,6 @@
 		animation: transform .1s;
 	}
 	td.social {
-		width: 2.5em;
-		height: 2.5em;
 		animation: background 0s 1.5s forwards;
 	}
 	@keyframes background {
@@ -55,22 +56,29 @@
 	.icon {
 		border-width: .02em;
 		border-style: dashed;
-		width: 4em;
+		width: 6em;
 		height: auto;
-		border-radius: 2em;
+		border-radius: 3em;
 	}
 	figure, p {
-		margin: 0;
+		font-size: 1.5em;
+		margin: .1em;
 	}
-	h3 {
+	h2 {
 		margin: .2em;
+	}
+	td {
+		font-weight: bold;
+	}
+	td.social {
+		border-radius: 1.5em;
 	}
 	button {
 		padding: 0; /* for filling button */
 		background: none;
 		border: none;
 		display: block;
-		border-radius: 0.5em;
+		border-radius: 1.5em;
 		cursor: pointer;
 		box-shadow: 0 0.1em 0.5em 0 rgba(0, 0, 0, .8),inset 0 -1em 0 0 rgba(0, 0, 0, .25);
 		background-color: white;
