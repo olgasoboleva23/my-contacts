@@ -20,6 +20,7 @@
 		border-radius: 1em;
   		text-align: center;
   		vertical-align: middle;
+		font-weight: bold;
 	}
 	img.social {
 		width:  5em;
@@ -28,8 +29,8 @@
 		border-radius: 1.5em;
 	}
 	td {
-		width: 4.2em;
-		height: 4.2em;
+		width: 4em;
+		height: 4em;
 		padding: 0;  /* for filling cell */
 	}
 	button:hover {
@@ -42,6 +43,9 @@
 	td.social {
 		animation: background 0s 1.5s forwards;
 		border: none;
+		height:4.4em;
+		width:4.4em;
+		border-radius: 1.5em;
 	}
 	@keyframes background {
 		100% {
@@ -68,16 +72,10 @@
 	h2 {
 		margin: .2em;
 	}
-	td {
-		font-weight: bold;
-	}
-	td.social {
-		border-radius: 1.5em;
-	}
 	button {
+		width: 100%;
 		padding: 0; /* for filling button */
-		background: none;
-		border: none;
+		margin:0; /* for filling button */
 		display: block;
 		border-radius: 1.5em;
 		cursor: pointer;
